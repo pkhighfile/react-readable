@@ -18,7 +18,7 @@ $ node server
 Server listening on port 3001, Ctrl+C to stop, Please note the port number maybe different on your machine, it's depend on availability of port.
 ```
 * In another terminal window, you have to copy this readable from the git repo.
-
+````
 $ git clone https://github.com/pkhighfile/react-readable.git
 $ cd readable
 $ npm install
