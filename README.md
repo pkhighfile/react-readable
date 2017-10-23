@@ -23,10 +23,11 @@ $ git clone https://github.com/pkhighfile/react-readable.git
 $ cd readable
 $ npm install
 $ npm start
+
 ```
  After this commend it's open the web browser with readable app. http://localhost:3000/
 
-```
+
 ### How to use this readable app.
 So now you can see very nice UI of MyBlog. 
 1. Home button :  it's used to return on home page at anytime or from anypage.
@@ -36,6 +37,5 @@ So now you can see very nice UI of MyBlog.
 5. Each Individual posts have voteup, votedown, edit, delete and comments controls.
 
 
-'''
 ### It's open source
 Please feel free to use this app for learning and understanding the react and redux concepts. 
