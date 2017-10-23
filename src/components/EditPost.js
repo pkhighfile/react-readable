@@ -137,9 +137,7 @@ class EditPost extends Component {
         <div className="input-field">   
             <textarea 
               value={this.state.body}
-              onChange={(e) => this.onBodyChange(e)}
-              name="comments" 
-              id="" 
+              onChange={(e) => this.onBodyChange(e)}              
               cols="30" 
               rows="8" />
           </div>

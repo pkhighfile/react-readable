@@ -48,15 +48,14 @@ class CommentList extends Component {
 
     let commentList = null
 
-    //  Ordered by voteScore (highest first)
+    
     if (this.props.comments) {
       commentList = this.props.comments.sort((a, b) => {
         if(a.voteScore > b.voteScore) {
           return -1
         } else {
           return 1
-        }
-        return 0
+        }       
       }).map(comment => (
         <div className="callout" key={comment.id}>
         <ul className="menu simple">

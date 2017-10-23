@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-
-import Up from './Up'
-import Down from './Down'
-import Score from './Score'
+import AddVote from './AddVote'
+import RemoveVote from './RemoveVote'
+import TotalVoteScore from './Score'
 
 class Vote extends Component {
   render() {
     return(
       <span>
-        <Up {...this.props} />
-        <Score {...this.props} />        
-        <Down {...this.props} />
+        <AddVote {...this.props} />
+        <TotalVoteScore {...this.props} />        
+        <RemoveVote {...this.props} />
       </span>
     )
   }

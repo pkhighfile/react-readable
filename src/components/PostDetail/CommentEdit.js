@@ -23,7 +23,7 @@ class CommentEdit extends Component {
     
     return(       
       <span>
-      <button onClick={this.onEdit} className="primary hollow button" ><i className={cssClass}></i> Edit</button>      
+      <button onClick={this.onEdit} className="primary hollow button" ><i className={cssClass}></i> {buttonValue}</button>      
     </span>
     )
   }

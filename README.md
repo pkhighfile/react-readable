@@ -23,12 +23,13 @@ $ git clone https://github.com/pkhighfile/react-readable.git
 $ cd readable
 $ npm install
 $ npm start
+````
 
-```
- After this commend it's open the web browser with readable app. http://localhost:3000/
+ * After this commend it's open the web browser with readable app. http://localhost:3000/
 
 
 ### How to use this readable app.
+
 So now you can see very nice UI of MyBlog. 
 1. Home button :  it's used to return on home page at anytime or from anypage.
 2. CreatePost button: it's used to create new blog for myblog. 

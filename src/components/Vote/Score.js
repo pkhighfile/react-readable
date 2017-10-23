@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Score = (props) => {
+const TotalVoteScore = (props) => {
   return(
     <li>
      <strong>{props.score}</strong>
@@ -8,4 +8,4 @@ const Score = (props) => {
   )
 }
 
-export default Score
+export default TotalVoteScore

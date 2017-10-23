@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost, addCommentAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
-import PostInfo from './PostInfo'
+import PostDetailView from './PostDetailView'
 import { CommentForm } from './CommentForm'
-import CommentList from './CommentList'
-
- 
+import CommentList from './CommentList' 
 
 class PostDetail extends Component {
   
@@ -57,7 +55,7 @@ class PostDetail extends Component {
     const { comments } = this.props.post.post
     return(
       <div className="row medium-10 large-9 columns">
-        <PostInfo post={post} />
+        <PostDetailView post={post} />
         <CommentForm
           txtComment={this.state.txtComment}
           cmtAuthor={this.state.cmtAuthor}

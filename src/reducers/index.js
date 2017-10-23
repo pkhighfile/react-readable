@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 
-// For Individual Post
 const post = (state = { post: {} }, action) => {
   switch(action.type) {
     case 'GET_POST':
@@ -33,7 +32,7 @@ const post = (state = { post: {} }, action) => {
           ...comments.slice(indexComment + 1)]
         }
       }
-    case 'EDIT_COMMENT':
+    case 'UPDATE_COMMENT':
       const editComments = [...state.post.comments]
       const indexEditComment = editComments.findIndex(comment => comment.id === action.id)
       const { body, timestamp } = action.comment
@@ -49,7 +48,7 @@ const post = (state = { post: {} }, action) => {
           newCommentToEdit, ...editComments.slice(indexEditComment + 1)]
         }
       }
-    case 'UPVOTE_COMMENT':
+    case 'VOTE_ADD_COMMENT':
       const upVoteComments = [...state.post.comments]
       const indexUpComment = upVoteComments.findIndex(comment => comment.id === action.id)
       const upScore = action.voteScore
@@ -64,7 +63,7 @@ const post = (state = { post: {} }, action) => {
           newUpScore, ...upVoteComments.slice(indexUpComment + 1)]
         }
       }
-    case 'DOWNVOTE_COMMENT':
+    case 'VOTE_DELETE_COMMENT':
       const downVoteComments = [...state.post.comments]
       const indexDownComment = downVoteComments.findIndex(comment => comment.id === action.id)
       const downScore = action.voteScore
@@ -100,7 +99,7 @@ const posts = (state = { posts: [] }, action) => {
       return {
         posts: [...state.posts, action.post]
       }
-    case 'ADD_NEW_POST':
+    case 'ADD_POST':
       return {
         ...state,
         posts: [...state.posts, action.post]
@@ -116,7 +115,7 @@ const posts = (state = { posts: [] }, action) => {
         posts: [...currentPost.slice(0, indexToDelete), 
         ...currentPost.slice(indexToDelete + 1)]
       }
-    case 'EDIT_POST':
+    case 'UPDATE_POST':
       const currentEditPost = [...state.posts]
       const indexEdit = currentEditPost.findIndex(post => post.id === action.id)
       const { title, category, body, author } = action.post
@@ -130,14 +129,14 @@ const posts = (state = { posts: [] }, action) => {
         posts: [...currentEditPost.slice(0, indexEdit),
         newPostToEdit, ...currentEditPost.slice(indexEdit + 1)]
       }
-    case 'UP_VOTE':
+    case 'VOTE_ADD_POST':
       const currentPostUpVote = [...state.posts]
       const indexUp= currentPostUpVote.findIndex(post => post.id === action.id)
       currentPostUpVote[indexUp].voteScore = currentPostUpVote[indexUp].voteScore + 1
       return {
         posts: [...currentPostUpVote]
       }
-    case 'DOWN_VOTE':
+    case 'VOTE_DELETE_POST':
       const currentPostDownVote = [...state.posts]
       const indexDown= currentPostDownVote.findIndex(post => post.id === action.id)
       currentPostDownVote[indexDown].voteScore = currentPostDownVote[indexDown].voteScore - 1
@@ -154,7 +153,7 @@ const posts = (state = { posts: [] }, action) => {
   }
 }
 
-// For Categories
+
 const categories = (state = { categories: [] }, action) => {
   switch(action.type) {
     case 'GET_CATEGORIES':
@@ -170,10 +169,10 @@ const categories = (state = { categories: [] }, action) => {
 const sort = (state = { sort: 'HigestVoted' }, action) => {
   switch(action.type) {
     case 'CHANGE_SORT':
-      const newValue = action.value
+      const newSort = action.value
       return {
         ...state, 
-        sort: newValue
+        sort: newSort
       }
     default: 
       return state

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Up = (props) => {
+const AddVote = (props) => {
   return(
     <li>
     <button 
@@ -12,4 +12,4 @@ const Up = (props) => {
   )
 }
 
-export default Up
+export default AddVote

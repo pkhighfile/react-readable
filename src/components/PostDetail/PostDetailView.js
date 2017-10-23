@@ -10,7 +10,7 @@ import {
   removePostAction
  } from '../../actions'
 
-class PostInfo extends Component {
+class PostDetailView extends Component {
   
   state = {
     deleted: false
@@ -76,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PostInfo)
+export default connect(null, mapDispatchToProps)(PostDetailView)

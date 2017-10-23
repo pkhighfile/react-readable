@@ -7,12 +7,12 @@ class Comment extends Component {
     comment: ''
   }
 
-  // Edit Comment
+ 
   onEdit = (id, editId) => {
     this.props.onEdit(id, editId, this.state.comment)
   }
 
-  // Delete Comment
+ 
   onDelete = (id) => {
     this.props.onDelete(id)
   }
@@ -39,8 +39,7 @@ class Comment extends Component {
               rows="5" 
               onChange={this.onChangeComment} 
               value={this.state.comment}
-              type="text" />
-           
+              type="text" />           
           
             <CommentEdit 
               id={this.props.id} 

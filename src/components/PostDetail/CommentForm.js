@@ -12,11 +12,9 @@ export class CommentForm extends Component {
             value={this.props.cmtAuthor}
             onChange={this.props.onInputAuthorChange} />
             <textarea 
-                placeholder="Enter your comment..."
+                placeholder="add your comment..."
                 onChange={this.props.onInputChange} 
-                value={this.props.txtComment}
-                name="comments" 
-                id="" 
+                value={this.props.txtComment}               
                 cols="30" 
                 rows="5" />
             <input 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { 
   deletePostAction, 
   upVoteAction, 
@@ -7,11 +8,6 @@ import {
  } from '../../actions'
 
 import Vote from '../Vote/'
-import { Title } from './Title'
-import { Body } from './Body'
-import { Author } from './Author'
-import { Count } from './Count'
- 
 
 class Post extends Component {
   state = {
@@ -45,7 +41,7 @@ class Post extends Component {
 
   render() {
     
-    const { id, body, title, author, timestamp } = this.props.post  
+    const { id, body, title, author, timestamp, category } = this.props.post  
     const { score } = this.state
     const posts = this.props.posts
     const index= posts.findIndex(post => post.id === id)
@@ -55,23 +51,22 @@ class Post extends Component {
     return(  
       <div className="callout">  
 
-            <Title post={this.props.post} />
-            <Body post={this.props.post} />
-            
-              <ul className="menu simple">
-
+            <Link to={`${category}/${id}`}><h4>{title}</h4></Link>
+            <p>{body.substring(0,200)}</p>            
+            <ul className="menu simple">
               <Vote 
                 id={id}
                 score={score}
                 onClickDownVote={this.onClickDownVote}
-                onClickUpVote={this.onClickUpVote} />    
-
-              <Author author={author} datex={timestamp}/>
-              <Count count={count} />               
-
-              </ul>
-                   
-      </div>
+                onClickUpVote={this.onClickUpVote} />  
+                 <li>
+                  Written by {author} <i className="fi-torso"></i> on {new Date(timestamp).toDateString()}
+                  </li>
+                  <li>
+                 <i className="fi-comments"></i> {count} 
+                  </li>
+                </ul>
+          </div>
     )
   }
 }

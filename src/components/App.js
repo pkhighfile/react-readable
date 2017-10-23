@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
  
 import Posts from './Posts/'
 import PostDetail from './PostDetail/'
-import NewPost from './NewPost/'
+import CreateNewPost from './CreateNewPost/'
 import EditPost from './EditPost'
 import HomeMenuBar from './Home'
 import FooterMenuBar from './Footer'
@@ -33,7 +33,7 @@ class App extends Component {
            <HomeMenuBar />
             <Switch>
               <Route exact path ='/' component={Posts} />
-              <Route exact path ='/new' component={NewPost} />
+              <Route exact path ='/new' component={CreateNewPost} />
               <Route exact path ='/edit/:id' component={EditPost} />
               <Route exact path ='/:category' component={Posts} />
               <Route exact path ='/:category/:id' component={PostDetail} />

@@ -1,18 +1,18 @@
 const api = process.env.REACT_APP_BACKEND || 'http://localhost:3001'
 
-// Get token from localStorage
 let token = localStorage.token 
 
 if (!token) 
-  token = localStorage.token = Math.random().toString(36).substr(-8)
+  token = localStorage.token = Math.random().toString(40).substr(-8)
 
-  //'Basic QURhZDphZERBRA=='
+  //Authorization:'Basic QURhZDphZERBRA=='
 const headers = {
   'Accept': 'application/json',
   'Authorization': token
 }
 
 //Most of method taken from the reactnd readable project server post.js, comment.js 
+
 // GET /categories
 export const getAllCategories = () => {
   return fetch(`${api}/categories`, { headers })

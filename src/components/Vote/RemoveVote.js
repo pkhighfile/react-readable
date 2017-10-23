@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Down = (props) => {
+const RemoveVote = (props) => {
   return(
     <li>
     <button 
@@ -12,4 +12,4 @@ const Down = (props) => {
   )
 }
 
-export default Down
+export default RemoveVote

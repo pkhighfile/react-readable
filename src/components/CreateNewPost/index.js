@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { fetchCategories, addNewPostAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
 
-class NewPost extends Component {
+class CreateNewPost extends Component {
   state = {
     title: '',
     category: 'react',
     author: '',
     body: '',
-    notValid: false,
+    InValid: false,
     success: false
   }
 
@@ -36,11 +36,11 @@ class NewPost extends Component {
           category: 'react',
           author: '',
           body: '',
-          notValid: false 
+          InValid: false 
         }))
     } else {
       this.setState({
-        notValid: true,
+        InValid: true,
         success: false
       })
     }
@@ -81,7 +81,7 @@ class NewPost extends Component {
           )}
         </div>
         <div>
-          {this.state.notValid && (
+          {this.state.InValid && (
             <p className="alert"><h3>All Fields Are Required</h3></p> 
           )}
         </div>
@@ -128,9 +128,7 @@ class NewPost extends Component {
             <textarea 
               placeholder="Please Write your blog here..."
               onChange={(e) => this.onBodyChange(e)}
-              value={this.state.body}
-              name="comments" 
-              id="" 
+              value={this.state.body} 
               cols="30" 
               rows="8" />           
         </div>       
@@ -164,4 +162,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateNewPost)

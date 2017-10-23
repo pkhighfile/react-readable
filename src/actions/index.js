@@ -14,25 +14,13 @@ import {
   voteComment
 } from '../utils/SeverAPIcalls'
 
-const GET_POSTS = 'GET_POSTS'
-const GET_POST = 'GET_POST'
-const GET_CATEGORIES = 'GET_CATEGORIES'
-const GET_POST_CATEGORY = 'GET_POST_CATEGORY'
-const ADD_NEW_POST = 'ADD_NEW_POST'
-const EDIT_POST = 'EDIT_POST'
- 
-const REMOVE_POST = 'REMOVE_POST'
-const DELETE_POSTS = 'DELETE_POSTS'
-const DOWN_VOTE = 'DOWN_VOTE'
-const UP_VOTE = 'UP_VOTE'
-const VOTE_POST = 'VOTE_POST'
-const CHANGE_SORT = 'CHANGE_SORT'
- 
- 
-const EDIT_COMMENT = 'EDIT_COMMENT'
-const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
-const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
-
+export const GET_POSTS = 'GET_POSTS'
+export const GET_POST = 'GET_POST'
+export const GET_CATEGORIES = 'GET_CATEGORIES'
+export const GET_POST_CATEGORY = 'GET_POST_CATEGORY'
+export const DELETE_POSTS = 'DELETE_POSTS'
+export const VOTE_POST = 'VOTE_POST'
+export const CHANGE_SORT = 'CHANGE_SORT' 
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
@@ -43,8 +31,7 @@ export const UPDATE_COMMENT = 'UPDATE_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const COUNT_COMMENT = 'COUNT_COMMENT'
 export const VOTE_ADD_COMMENT = 'VOTE_ADD_COMMENT'
-export const VOTE_DELETE_COMMENT = 'VOTE_DELETE_COMMENT'
- 
+export const VOTE_DELETE_COMMENT = 'VOTE_DELETE_COMMENT' 
 
 
 export const fetchPosts = () => dispatch => (
@@ -81,7 +68,7 @@ export const addNewPostAction = (post) => dispatch => (
   addNewPost(post)
     .then(post => {
       dispatch({
-        type: ADD_NEW_POST,
+        type: ADD_POST,
         post
       })
     })
@@ -91,7 +78,7 @@ export const editPostAction = (id, post) => dispatch => (
   editPost(id, post)
     .then((post) => {
       dispatch({
-        type: EDIT_POST,
+        type: UPDATE_POST,
         id, 
         post
       })
@@ -112,7 +99,7 @@ export const removePostAction = (id) => dispatch => {
   return deletePost(id)
     .then(() => {
       dispatch({
-        type: REMOVE_POST,
+        type: DELETE_POST,
         id
       })
     })
@@ -132,7 +119,7 @@ export const downVoteAction = (id) => dispatch => (
   votePost(id, "downVote")
     .then(() => {
       dispatch({
-        type: DOWN_VOTE,
+        type: VOTE_DELETE_POST,
         id
       })
     })
@@ -142,7 +129,7 @@ export const upVoteAction = (id) => dispatch => (
   votePost(id, "upVote")
     .then(() => {
       dispatch({
-        type: UP_VOTE,
+        type: VOTE_ADD_POST,
         id
       })
     })
@@ -214,7 +201,7 @@ export const editCommentAction = (id, comment) => dispatch => {
   return editComment(id, comment)
     .then((comment) => {
       dispatch({
-        type: EDIT_COMMENT,
+        type: UPDATE_COMMENT,
         id,
         comment
       })
@@ -225,7 +212,7 @@ export const upVoteCommentAction = (id) => dispatch => (
   voteComment(id, "upVote")
     .then((comment) => {
       dispatch({
-        type: UPVOTE_COMMENT,
+        type: VOTE_ADD_COMMENT,
         id: comment.id,
         parentId: comment.parentId,
         voteScore: comment.voteScore
@@ -237,7 +224,7 @@ export const downVoteCommentAction = (id) => dispatch => (
   voteComment(id, "downVote")
     .then((comment) => {
       dispatch({
-        type: DOWNVOTE_COMMENT,
+        type: VOTE_DELETE_COMMENT,
         id: comment.id,
         parentId: comment.parentId,
         voteScore: comment.voteScore

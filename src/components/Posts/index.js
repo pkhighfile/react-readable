@@ -36,9 +36,7 @@ class Posts extends Component {
       }
     })
     
-    let postList
-
-    // TODO - write this in better way - DRY principle
+    let postList   
     if (filteredPosts.length > 0) {
       if(this.props.sort === 'HigestVoted') {
         postList = filteredPosts.sort((a, b) => {
@@ -46,8 +44,7 @@ class Posts extends Component {
             return -1
           } else {
             return 1
-          }
-          return 0
+          }          
         }).map(post => (<div key={post.id}><Post post={post} /></div>))
       } 
        if(this.props.sort === 'LowestVoted') {
@@ -56,8 +53,7 @@ class Posts extends Component {
             return 1
           } else {
             return -1
-          }
-          return 0
+          }         
         }).map(post => (<div key={post.id}><Post post={post} /></div>))
       } 
        if(this.props.sort === 'date') {
@@ -66,8 +62,7 @@ class Posts extends Component {
             return 1
           } else {
             return -1
-          }
-          return 0
+          }          
         }).map(post => (<div key={post.id}><Post post={post} /></div>))
       }
     } 
