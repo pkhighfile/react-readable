@@ -16,6 +16,7 @@ import {
 
 export const GET_POSTS = 'GET_POSTS'
 export const GET_POST = 'GET_POST'
+/*export const GET_POST_FOREDIT = 'GET_POST_FOREDIT'*/
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_POST_CATEGORY = 'GET_POST_CATEGORY'
 export const DELETE_POSTS = 'DELETE_POSTS'
@@ -63,6 +64,15 @@ export const fetchPost = (id) => dispatch => (
         })
     })
 )
+/* not effect in rendering 
+export const fetchPostForEdit =(id) => dispatch =>{
+  getPost(id).then(post => {
+    dispatch({
+      type:GET_POST_FOREDIT,
+      post
+    })
+  })
+}*/
 
 export const addNewPostAction = (post) => dispatch => (
   addNewPost(post)

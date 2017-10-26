@@ -7,7 +7,7 @@ const post = (state = { post: {} }, action) => {
       return {
         ...state, 
         post: action.post
-      }
+      }  
     case 'REMOVE_POST': 
       return {
         ...state, 
@@ -98,7 +98,7 @@ const posts = (state = { posts: [] }, action) => {
       action.post.comments = action.comments
       return {
         posts: [...state.posts, action.post]
-      }
+      }    
     case 'ADD_POST':
       return {
         ...state,
@@ -165,6 +165,18 @@ const categories = (state = { categories: [] }, action) => {
       return state
   }
 }
+/* no effect in rendering time , component still need to update twice
+const PostForEdit = ( state= { PostForEdit:[] }, action) =>{
+  switch(action.type) {
+    case 'GET_POST_FOREDIT': 
+    return{
+      ...state,
+      PostForEdit: action.post
+    }
+    default:
+    return state
+  }
+}*/
 
 const sort = (state = { sort: 'HigestVoted' }, action) => {
   switch(action.type) {
@@ -178,6 +190,7 @@ const sort = (state = { sort: 'HigestVoted' }, action) => {
       return state
   }
 }
+
 
 export default combineReducers({
   post,

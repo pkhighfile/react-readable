@@ -4,31 +4,42 @@ import { Redirect } from 'react-router-dom'
 import { fetchPost, fetchCategories, editPostAction } from '../actions'
 
 class EditPost extends Component {
-  state = {
-    id: '',
+  state = { 
+     id: '',
     title: '',
     author: '',
     body: '',
     category: '',
     notValid: false,
-    success: false,
-    edited: false
+    success: false 
   }
-
-  componentDidMount() {
+  componentDidMount(){   
     const { id } = this.props.match.params
-    
-    this.props.getPost(id)
-      .then(() => {
-        const { title, author, body, category } = this.props.post.post
-        this.setState({         
-          id,
-          title,
-          author,
-          body,
-          category
-        })
-      })
+
+    this.props.getPost(id).then(() => {  
+     
+      const { title, author, body, category } = this.props.post.post
+      this.setState({               
+       id: id,
+       title: title,
+       author: author,
+       body:body,
+       category: category        
+      }) 
+    })   
+       
+  }
+  componentWillReceiveProps(nextProps){
+    if(this.state.title !== nextProps.post.post.title){
+      const { title, author, body, category } = nextProps.post.post
+      this.setState({               
+       ...this.state,
+       title: title,
+       author: author,
+       body:body,
+       category: category        
+      }) 
+    }
   }
 
   onTitleChange = (e) => {
@@ -45,13 +56,13 @@ class EditPost extends Component {
 
   onAuthorChange = (e) => {
     this.setState({
-      author: e.target.value
+      author: e.target.value 
     })
   }
 
   onCategoryChange = (e) => {
     this.setState({
-      category: e.target.value
+       category: e.target.value 
     })
   }
 
@@ -64,15 +75,16 @@ class EditPost extends Component {
       author
     })
     .then(() => {
-        this.setState({
-          success: true
+        this.setState({                  
+          success: true       
         })
     })
   }
 
   render() {
-    const { categories } = this.props.categories
-    const { id, category } = this.state
+    const { categories } = this.props.categories     
+    const { id, category } = this.state   
+    
     const categoryList = categories.map(category => {
       return (
         <option key={category.name} value={category.name}>
@@ -103,7 +115,7 @@ class EditPost extends Component {
             <input 
               type="text" 
               onChange={(e) => this.onTitleChange(e)}
-              value={this.state.title}
+              value={this.state.title ? this.state.title :''}
               className="input-group-field"
               name="title" />
           </div>
@@ -114,7 +126,7 @@ class EditPost extends Component {
             <input 
               type="text" 
               onChange={(e) => this.onAuthorChange(e)}
-              value={this.state.author}
+              value={this.state.author ? this.state.author : ''}
               className="input-group-field"
               name="author" />
           </div>
@@ -136,7 +148,7 @@ class EditPost extends Component {
 
         <div className="input-field">   
             <textarea 
-              value={this.state.body}
+              value={this.state.body ? this.state.body : ''}
               onChange={(e) => this.onBodyChange(e)}              
               cols="30" 
               rows="8" />
@@ -161,7 +173,7 @@ class EditPost extends Component {
 const mapStateToProps = ({ post, categories }) => {
   return {
     post,
-    categories
+    categories   
   }
 }
 

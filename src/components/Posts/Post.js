@@ -65,6 +65,10 @@ class Post extends Component {
                   <li>
                  <i className="fi-comments"></i> {count} 
                   </li>
+                  <li><Link to={`/edit/${id}`}><i className="fi-pencil"></i> Edit</Link> </li>
+            <li>
+            <button onClick={() =>  this.onDeleteClick(id)}><i className="fi-trash"></i> Delete</button>
+            </li>  
                 </ul>
           </div>
     )

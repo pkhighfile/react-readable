@@ -35,6 +35,9 @@ class PostDetailView extends Component {
 
   render() {
     const { id, author, body, category, title, voteScore, timestamp } = this.props.post
+    const count = this.props.post.comments 
+                  ? this.props.post.comments.length
+                  : '&'
 
     if (this.state.deleted) {
       return (<Redirect to='/' />)
@@ -54,6 +57,7 @@ class PostDetailView extends Component {
               onClickDownVote={this.onClickDownVote} />          
             
             <li><b>Category: </b>{category}</li>
+            <li> <i className="fi-comments"></i> {count} </li>
             <li><Link to={`/edit/${id}`}><i className="fi-pencil"></i> Edit</Link> </li>
             <li>
             <button onClick={() =>  this.onDelete(id)}><i className="fi-trash"></i> Delete</button>

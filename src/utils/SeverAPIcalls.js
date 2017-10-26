@@ -62,7 +62,7 @@ export const editPost = (id, post) => {
 // GET /posts/:id
 export const getPost = (id) => {
   return fetch(`${api}/posts/${id}`, { headers })
-    .then(response => response.json())
+    .then(response => response.json()).catch(e => e)
 }
 
 // POST /posts/:id
